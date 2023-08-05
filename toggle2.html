@@ -1,0 +1,86 @@
+<div class="jet-switcher__control-wrapper">
+  <div
+    class="jet-switcher__control jet-switcher__control--disable"
+    role="button"
+    aria-controls="jet-switcher-content-disable-096e5fe"
+    aria-expanded="false"
+  >
+    <div class="jet-switcher__label-text">Annual Plan</div>
+  </div>
+  <div class="jet-switcher__control-instance">
+    <div class="jet-switcher__control-handler"><span></span></div>
+  </div>
+  <div
+    class="jet-switcher__control jet-switcher__control--enable"
+    role="button"
+    aria-controls="jet-switcher-content-enable-096e5fe"
+    aria-expanded="true"
+  >
+    <div class="jet-switcher__label-text">Quarter Plan</div>
+  </div>
+</div>
+
+<script>
+  var switcherControls = document.querySelectorAll(".jet-switcher__control");
+  switcherControls.forEach((control) => {
+    control.addEventListener("click", function () {
+      switcherControls.forEach((ctrl) => {
+        ctrl.classList.remove("jet-switcher__control--enable");
+        ctrl.classList.add("jet-switcher__control--disable");
+        ctrl.setAttribute("aria-expanded", false);
+      });
+      control.classList.remove("jet-switcher__control--disable");
+      control.classList.add("jet-switcher__control--enable");
+      control.setAttribute("aria-expanded", true);
+    });
+  });
+</script>
+
+<style>
+  .jet-switcher__control--disable {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .jet-switcher__control--enable {
+    opacity: 1;
+    cursor: default;
+  }
+
+  .jet-switcher__control-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .elementor *,
+  .elementor :after,
+  .elementor :before {
+    box-sizing: border-box;
+  }
+
+  *,
+  body,
+  dd,
+  div,
+  dl,
+  dt,
+  fieldset,
+  form,
+  html,
+  input,
+  label,
+  li,
+  pre,
+  td,
+  th {
+    margin: 0;
+    padding: 0;
+  }
+</style>

@@ -1,0 +1,57 @@
+<div class="switch-container">
+  <span id="label-off" class="switch-label">Nonaktif</span>
+  <input
+    id="content_switcher"
+    class="toggle_switch toggle_switch-ios"
+    type="checkbox"
+  />
+  <label
+    class="toggle_switch-button"
+    tabindex="0"
+    for="content_switcher"
+  ></label>
+  <span id="label-on" class="switch-label">Aktif</span>
+</div>
+
+<script>
+  if (!document.querySelector(".elementor-editor-active")) {
+    let toggleSwitches = document.querySelectorAll(".toggle_switch");
+    toggleSwitches.forEach((e, i) => {
+      let shown = e.closest(".elementor-element").nextElementSibling;
+      let toBeShown = shown.nextElementSibling;
+      toBeShown.style.display = "none";
+      e.addEventListener("change", function () {
+        if (e.checked) {
+          shown.style.display = "none";
+          toBeShown.style.display = "block";
+          document.getElementById("label-off").style.display = "none";
+          document.getElementById("label-on").style.display = "inline";
+        } else {
+          shown.style.display = "block";
+          toBeShown.style.display = "none";
+          document.getElementById("label-off").style.display = "inline";
+          document.getElementById("label-on").style.display = "none";
+        }
+      });
+    });
+  }
+</script>
+
+<style>
+  /* Your existing styles */
+
+  .switch-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .switch-label {
+    font-size: 1rem;
+  }
+
+  /* Initially hide the 'On' label */
+  #label-on {
+    display: none;
+  }
+</style>
