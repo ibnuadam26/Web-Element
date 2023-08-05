@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Switch button</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .button-box {
+        width: 247px;
+        height: 24px;
+        margin: 40px auto;
+        position: relative;
+        border-radius: 30px;
+        background: #fff;
+        display: flex;
+        justify-content: space-around;
+        border-style: solid;
+        border-width: 1px;
+        color: #aa21ff;
+      }
+
+      .toggle-btn {
+        align-items: center;
+        cursor: pointer;
+        background: transparent;
+        border: 0;
+        outline: none;
+        position: relative;
+        text-align: center;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        color: #aa21ff;
+      }
+
+      .toggle-btn.aktif {
+        color: #fff;
+      }
+
+      #btn {
+        left: 0;
+        top: 0;
+        position: absolute;
+        width: 137px;
+        height: 100%;
+        background: #aa21ff;
+        border-radius: 30px;
+        transition: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-box">
+      <div class="button-box">
+        <div id="btn"></div>
+        <button
+          id="annualPlan"
+          type="button"
+          class="toggle-btn"
+          onclick="leftClick()"
+        >
+          Annual Plan
+        </button>
+        <button
+          id="quarterPlan"
+          type="button"
+          class="toggle-btn"
+          onclick="rightClick()"
+        >
+          Quarter Plan
+        </button>
+      </div>
+    </div>
+
+    <script>
+      var btn = document.getElementById("btn");
+      var annualPlan = document.getElementById("annualPlan");
+      var quarterPlan = document.getElementById("quarterPlan");
+
+      function leftClick() {
+        btn.style.left = "0px";
+        annualPlan.classList.add("aktif");
+        quarterPlan.classList.remove("aktif");
+      }
+
+      function rightClick() {
+        btn.style.left = "110px";
+        quarterPlan.classList.add("aktif");
+        annualPlan.classList.remove("aktif");
+      }
+    </script>
+  </body>
+</html>
